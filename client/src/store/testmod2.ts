@@ -4,8 +4,8 @@ export default {
     somebool: false,
   },
   mutations: {
-    setSomebool(state: any, bool: boolean) {
-      state.somebool = bool;
+    switchBool(state: any) {
+      state.somebool = !state.somebool;
     },
   },
   actions: {},

@@ -20,4 +20,17 @@ export default new Vuex.Store({
     testmod1,
     testmod2,
   },
+  plugins: [
+    (store) => {
+      const ws = new WebSocket("ws://localhost:9090");
+      ws.onmessage = (e: MessageEvent) => {
+        const { data } = e;
+        const obj = JSON.parse(data) as { [key: string]: any };
+
+        for (const key in obj) {
+          store.commit(key, obj[key]);
+        }
+      };
+    },
+  ],
 });

@@ -13,9 +13,9 @@ import store from "./store/index";
 
 @Component({
   components: {
-    HelloWorld,
+    HelloWorld
   },
-  store,
+  store
 })
 export default class App extends Vue {}
 </script>
